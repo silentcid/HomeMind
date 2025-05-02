@@ -1,4 +1,4 @@
-package com.example.homemind
+package com.dragon.homemind
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

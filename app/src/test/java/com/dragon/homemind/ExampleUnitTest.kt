@@ -1,4 +1,4 @@
-package com.example.homemind
+package com.dragon.homemind
 
 import org.junit.Test
 

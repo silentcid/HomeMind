@@ -1,4 +1,4 @@
-package com.example.homemind.ui.theme
+package com.dragon.homemind.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
