@@ -1,0 +1,33 @@
+# Android Studio
+.idea/
+*.iml
+.gradle/
+local.properties
+.DS_Store
+
+# Ignore specific .idea files if not ignoring whole .idea/
+# (But safest to ignore the whole folder if you're solo or using stable configs)
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
+# Build output
+/build/
+/captures/
+/.externalNativeBuild/
+/cxx/
+
+# Kotlin/Java
+*.class
+
+# Jetpack Compose Preview Caches
+*.cache/
+
+# Kotlin Symbol Processing (KSP)
+.ksp/
+
+# OS-specific
+Thumbs.db
