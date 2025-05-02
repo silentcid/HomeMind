@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.homemind"
+    namespace = "com.silentcid.homemind"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.homemind"
+        applicationId = "com.silentcid.homemind"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
