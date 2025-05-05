@@ -1,4 +1,9 @@
-package com.dragon.homemind
+package com.silentcid.homemind
 
-class HomeMindApp {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class HomeMindApp : Application() {
+
 }

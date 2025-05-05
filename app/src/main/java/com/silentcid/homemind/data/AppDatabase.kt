@@ -1,4 +1,4 @@
-package com.dragon.homemind.data
+package com.silentcid.homemind.data
 
 class AppDatabase {
 }

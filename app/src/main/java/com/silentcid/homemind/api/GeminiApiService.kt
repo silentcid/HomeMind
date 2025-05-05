@@ -1,4 +1,4 @@
-package com.dragon.homemind.api
+package com.silentcid.homemind.api
 
 class GeminiApiService {
 }

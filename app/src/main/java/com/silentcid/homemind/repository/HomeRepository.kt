@@ -1,4 +1,4 @@
-package com.dragon.homemind.repository
+package com.silentcid.homemind.repository
 
 class HomeRepository {
 }

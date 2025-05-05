@@ -1,4 +1,4 @@
-package com.dragon.homemind
+package com.silentcid.homemind
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
