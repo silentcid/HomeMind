@@ -1,4 +1,4 @@
-package com.example.homemind
+package com.silentcid.homemind
 
 import org.junit.Test
 

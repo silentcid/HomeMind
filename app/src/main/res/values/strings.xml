@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HomeMind</string>
+    <string name="api_error_title">Server Error</string>
+    <string name="api_error_description">We couldn\'t complete your request. (Code: %1$d)</string>
+    <string name="network_error_title">Network Error</string>
+    <string name="network_error_description">Check your internet connection and try again.</string>
+    <string name="general_error_title">Something went wrong</string>
+    <string name="general_error_description">Please try again later. </string>
+
 </resources>

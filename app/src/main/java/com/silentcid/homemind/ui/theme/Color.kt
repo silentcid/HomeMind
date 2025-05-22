@@ -1,4 +1,4 @@
-package com.example.homemind.ui.theme
+package com.silentcid.homemind.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
