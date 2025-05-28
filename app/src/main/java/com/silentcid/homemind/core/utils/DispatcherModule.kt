@@ -1,6 +1,5 @@
-package com.silentcid.homemind.di
+package com.silentcid.homemind.core.utils
 
-import com.silentcid.homemind.core.utils.DispatcherProvider
 import com.silentcid.homemind.domain.models.infrastructure.coroutine.DefaultDispatcherProvider
 import dagger.Module
 import dagger.Provides
@@ -10,11 +9,8 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object DispatcherModule {
     @Provides
     @Singleton
-    fun provideDispatcherProvider():DispatcherProvider = DefaultDispatcherProvider()
-
-
-
+    fun provideDispatcherProvider(): DispatcherProvider = DefaultDispatcherProvider()
 }

@@ -1,7 +1,13 @@
+import org.gradle.api.JavaVersion.VERSION_11
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("org.jetbrains.kotlin.kapt")
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -28,8 +34,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = VERSION_11
+        targetCompatibility = VERSION_11
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -41,8 +47,9 @@ android {
 
 dependencies {
 
-    implementation(libs.google.dagger.hilt.android)
-    implementation(libs.google.dagger.hilt.compiler)
+    kapt(libs.google.hilt.compiler)
+    ksp(libs.room.compiler)
+    implementation(libs.google.hilt.android)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     implementation(libs.room.compiler)
@@ -68,3 +75,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
+

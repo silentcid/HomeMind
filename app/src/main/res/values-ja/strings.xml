@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ホームマインド</string>
+    <string name="api_error_title">サーバーエラー</string>
+    <string name="api_error_description">リクエストを完了できませんでした。（コード: %1$d）</string>
+    <string name="network_error_title">ネットワークエラー</string>
+    <string name="network_error_description">インターネット接続を確認して、もう一度お試しください。</string>
+    <string name="general_error_title">問題が発生しました</string>
+    <string name="general_error_description">後でもう一度お試しください。</string>
+    <string name="welcome_text">ようこそ！</string>
+    <string name="grocery_count">品数 %1$d</string>
+    <string name="grocery_button">Add Grocery Items</string>
+    <string name="suggestion_button">Suggestions</string>
+</resources>
