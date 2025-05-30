@@ -10,6 +10,6 @@
     <string name="grocery_count">Number of Items: %1$d</string>
     <string name="grocery_button">Add Grocery Items</string>
     <string name="suggestion_button">Suggestions</string>
-
+    <string name="camera_button">Take Photo</string>
 
 </resources>

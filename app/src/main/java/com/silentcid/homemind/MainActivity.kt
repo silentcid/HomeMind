@@ -24,6 +24,8 @@ class MainActivity : ComponentActivity() {
                         GroceryItem(0,"StrawBerry", 2, false),
                         GroceryItem(1,"Bread", 1, false),
                         GroceryItem(2,"Ice Cream", 3, false),
+                        GroceryItem(3,"Coca Cola", 5, false ),
+                        GroceryItem(3,"nuggets", 15, false )
 
                     )
 

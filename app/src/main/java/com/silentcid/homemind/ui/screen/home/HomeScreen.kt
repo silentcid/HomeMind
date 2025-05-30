@@ -1,31 +1,23 @@
 package com.silentcid.homemind.ui.screen.home
 
 import android.content.res.Configuration
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.silentcid.homemind.R
 import com.silentcid.homemind.data.models.GroceryItem
-import androidx.compose.material3.*
-import androidx.compose.ui.unit.dp
+import com.silentcid.homemind.ui.components.GroceryItemCard
 import com.silentcid.homemind.ui.components.ToolBar
+import com.silentcid.homemind.ui.components.WelcomeCarousel
 import com.silentcid.homemind.ui.theme.HomeMindTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,82 +30,58 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             ToolBar(
-                R.string.app_name, onNavigationClick = {
-                })
+                R.string.app_name,
+                onNavigationClick = {}
+            )
         },
         content = { padding ->
-            Column(
+            LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding)
                     .padding(horizontal = dimensionResource(R.dimen.screen_margins)),
-                verticalArrangement = Arrangement.Top
+                verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.content_margins)),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = stringResource(R.string.welcome_text),
-                    style = MaterialTheme.typography.headlineSmall,
-                    modifier = Modifier
-                        .align (alignment = Alignment.Start)
-                        .padding(top = 16.dp, start = 16.dp)
-                )
-                Spacer(modifier = Modifier.weight(1f))
-
-                Column(
-                    modifier = Modifier
-                        .wrapContentWidth()
-                        .defaultMinSize(minWidth = 160.dp)
-                        .background(
-                            color = MaterialTheme.colorScheme.primaryContainer,
-                            shape = RoundedCornerShape(20.dp)
-                        )
-                        .padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.content_margins))
-                ) {
-
+                item {
                     Text(
-                        text = stringResource(R.string.grocery_count, groceryItems.size),
-                        style = MaterialTheme.typography.bodyLarge
+                        text = stringResource(R.string.welcome_text),
+                        style = MaterialTheme.typography.displayMedium.copy(fontWeight = FontWeight.Medium),
+                        modifier = Modifier
+                            .padding(top = 16.dp, start = 8.dp, bottom = 16.dp)
+                            
                     )
-
-                    Button(onClick = onNavigateToGrocery) {
-                        Text(stringResource(R.string.grocery_button))
-                    }
-
-                    Button(onClick = onNavigateToSuggestions) {
-                        Text(stringResource(R.string.suggestion_button))
-                    }
                 }
 
-                Spacer(modifier = Modifier.weight(2f)) // 👈 Allows space for future bottom content
+                item {
+                    WelcomeCarousel { /* Handle carousel click if needed */ }
+                }
+
+                item {
+                    Text(
+                        text = stringResource(R.string.grocery_count, groceryItems.size),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Medium),
+                        modifier = Modifier.padding(top = 16.dp)
+                    )
+                }
+
+                items(groceryItems) { item ->
+                    GroceryItemCard(item)
+                }
+
             }
         }
-
     )
 }
 
-
-@Preview(showBackground = true,
+@Preview(
+    showBackground = true,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
-    name = "Dark Mode")
-@Composable
-fun ButtonColorPreview() {
-    HomeMindTheme(darkTheme = true) {
-        Button(onClick = {}) {
-            Text("Custom Themed Button")
-        }
-    }
-}
-
-
-
-@Preview(showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    name = "Dark Mode")
+    name = "Dark Mode"
+)
 @Composable
 fun HomeScreenPreview() {
-    HomeMindTheme(darkTheme = true
-    ) {
+    HomeMindTheme(darkTheme = true) {
         HomeScreen(
             groceryItems = listOf(
                 GroceryItem(name = "Apples", quantity = 2),
