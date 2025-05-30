@@ -1,6 +1,6 @@
 package com.silentcid.homemind.di
 
-import com.bottlerocketstudios.mapsdemo.infrastructure.retrofitadapter.ResultRetrofitAdapterFactory
+import com.silentcid.homemind.core.retrofit.ResultRetrofitAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
