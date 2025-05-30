@@ -25,6 +25,7 @@ import com.silentcid.homemind.R
 import com.silentcid.homemind.data.models.GroceryItem
 import androidx.compose.material3.*
 import androidx.compose.ui.unit.dp
+import com.silentcid.homemind.ui.components.ToolBar
 import com.silentcid.homemind.ui.theme.HomeMindTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,9 +37,9 @@ fun HomeScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(text = stringResource(R.string.app_name)) }
-            )
+            ToolBar(
+                R.string.app_name, onNavigationClick = {
+                })
         },
         content = { padding ->
             Column(
@@ -46,10 +47,16 @@ fun HomeScreen(
                     .fillMaxSize()
                     .padding(padding)
                     .padding(horizontal = dimensionResource(R.dimen.screen_margins)),
-                horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top
             ) {
-                Spacer(modifier = Modifier.weight(1f)) // 👈 Pushes the card down from top
+                Text(
+                    text = stringResource(R.string.welcome_text),
+                    style = MaterialTheme.typography.headlineSmall,
+                    modifier = Modifier
+                        .align (alignment = Alignment.Start)
+                        .padding(top = 16.dp, start = 16.dp)
+                )
+                Spacer(modifier = Modifier.weight(1f))
 
                 Column(
                     modifier = Modifier
@@ -63,10 +70,6 @@ fun HomeScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.content_margins))
                 ) {
-                    Text(
-                        text = stringResource(R.string.welcome_text),
-                        style = MaterialTheme.typography.headlineSmall
-                    )
 
                     Text(
                         text = stringResource(R.string.grocery_count, groceryItems.size),

@@ -34,7 +34,7 @@ private val DarkColorScheme = darkColorScheme(
     onPrimary = Color(0xFF4F378B),
     primaryContainer = Color(0xFF4F378B),
     onPrimaryContainer = Color(0xffEADCFE),
-    // ... define other colors as needed
+    background = Color(0xff25232a)
 )
 
 
