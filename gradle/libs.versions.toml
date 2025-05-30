@@ -5,20 +5,20 @@ coreKtx = "1.10.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
+lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.8.0"
-composeBom = "2024.09.00"
-daggerHilt = "2.56.1"
-daggerHiltCompose = "1.1.0"
-room = "2.6.1"
+composeBom = "2025.05.01"
+daggerHilt = "2.56.2"
+daggerHiltCompose = "1.2.0"
+room = "2.7.1"
 retrofit = "2.9.0"
 moshi = "1.15.0"
 moshiConverter = "2.9.0"
-
+ksp = "2.0.21-1.0.27"
 
 [libraries]
-google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
-google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+google-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "daggerHiltCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -37,16 +37,15 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-room-testing = { group = "androidx.room", name ="room-testing", version.ref = "room"}
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "moshiConverter" }
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 
-
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-dagger-hilt = { id = "com.google.dagger.hilt.android",  version.ref = "daggerHilt"}
-
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+ksp = { id = "com.google.devtools.ksp", version = "ksp" }

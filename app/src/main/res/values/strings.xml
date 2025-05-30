@@ -6,5 +6,10 @@
     <string name="network_error_description">Check your internet connection and try again.</string>
     <string name="general_error_title">Something went wrong</string>
     <string name="general_error_description">Please try again later. </string>
+    <string name="welcome_text">Welcome</string>
+    <string name="grocery_count">Number of Items: %1$d</string>
+    <string name="grocery_button">Add Grocery Items</string>
+    <string name="suggestion_button">Suggestions</string>
+
 
 </resources>
