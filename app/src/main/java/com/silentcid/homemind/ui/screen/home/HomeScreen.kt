@@ -6,7 +6,6 @@
     import androidx.compose.foundation.lazy.items
     import androidx.compose.material3.*
     import androidx.compose.runtime.Composable
-    import androidx.compose.runtime.mutableStateOf
     import androidx.compose.ui.Alignment
     import androidx.compose.ui.Modifier
     import androidx.compose.ui.res.dimensionResource
@@ -29,9 +28,6 @@
         onNavigateToSuggestions: () -> Unit,
         onToggleLanguage: () -> Unit,
     ) {
-
-        var listExpanded by remember { mutableStateOf(false) }
-
         Scaffold(
             topBar = {
                 ToolBar(
@@ -96,43 +92,8 @@
                         )
                     }
 
-                    item {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 16.dp)
-                        ) {
-                            Text(
-                                text = stringResource(R.string.grocery_count, groceryItems.size),
-                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Medium)
-                            )
-
-                            IconButton(onClick = { listExpanded = !listExpanded }) {
-                                Icon(
-                                    imageVector = if (listExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
-                                    contentDescription = if (listExpanded) "Collapse" else "Expand"
-                                )
-                            }
-                        }
-                    }
-
-                    item {
-                        AnimatedVisibility(
-                            visible = listExpanded,
-                            enter = fadeIn() + expandVertically(),
-                            exit = fadeOut() + shrinkVertically()
-                        ) {
-                            Column(
-                                verticalArrangement = Arrangement.spacedBy(8.dp),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                groceryItems.forEach { item ->
-                                    GroceryItemCard(item)
-                                }
-                            }
-                        }
+                    items(groceryItems) { item ->
+                        GroceryItemCard(item)
                     }
 
                 }
