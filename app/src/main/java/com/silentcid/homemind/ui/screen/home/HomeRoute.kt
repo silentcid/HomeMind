@@ -10,13 +10,15 @@ import androidx.compose.runtime.getValue
 fun HomeRoute(
     viewModel: GroceryViewModel = hiltViewModel(),
     onNavigateToGrocery: () -> Unit,
-    onNavigateToSuggestions: () -> Unit
+    onNavigateToSuggestions: () -> Unit,
+    onToggleLanguage: () -> Unit,
 ) {
     val groceryItems by viewModel.groceryItems.collectAsState()
 
     HomeScreen(
         groceryItems = groceryItems,
         onNavigateToGrocery = onNavigateToGrocery,
-        onNavigateToSuggestions = onNavigateToSuggestions
+        onNavigateToSuggestions = onNavigateToSuggestions,
+        onToggleLanguage = onToggleLanguage,
     )
 }

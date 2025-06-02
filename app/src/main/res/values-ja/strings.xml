@@ -12,4 +12,5 @@
     <string name="grocery_button">食料品を追加する</string>
     <string name="suggestion_button">提案</string>
     <string name="camera_button">写真を撮る</string>
+    <string name="change_language_button">言語を変更</string>
 </resources>
