@@ -11,5 +11,5 @@
     <string name="grocery_button">Add Grocery Items</string>
     <string name="suggestion_button">Suggestions</string>
     <string name="camera_button">Take Photo</string>
-
+    <string name="change_language_button">Change Language</string>
 </resources>
