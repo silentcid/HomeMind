@@ -1,9 +1,9 @@
     package com.silentcid.homemind.ui.screen.home
 
     import android.content.res.Configuration
+    import android.util.Log
     import androidx.compose.foundation.layout.*
     import androidx.compose.foundation.lazy.LazyColumn
-    import androidx.compose.foundation.lazy.items
     import androidx.compose.material3.*
     import androidx.compose.runtime.Composable
     import androidx.compose.ui.Alignment
@@ -15,7 +15,7 @@
     import androidx.compose.ui.unit.dp
     import com.silentcid.homemind.R
     import com.silentcid.homemind.data.models.GroceryItem
-    import com.silentcid.homemind.ui.components.GroceryItemCard
+    import com.silentcid.homemind.ui.components.ExpandableGroceryList
     import com.silentcid.homemind.ui.components.ToolBar
     import com.silentcid.homemind.ui.components.WelcomeCarousel
     import com.silentcid.homemind.ui.theme.HomeMindTheme
@@ -27,6 +27,8 @@
         onNavigateToGrocery: () -> Unit,
         onNavigateToSuggestions: () -> Unit,
         onToggleLanguage: () -> Unit,
+        onNavigateToGroceryItemDetails: () -> Unit,
+        onGroceryItemCheckBoxClicked: (groceryItem: GroceryItem) -> Unit,
     ) {
         Scaffold(
             topBar = {
@@ -91,9 +93,21 @@
                             modifier = Modifier.padding(top = 16.dp)
                         )
                     }
+                    item {
 
-                    items(groceryItems) { item ->
-                        GroceryItemCard(item)
+                        ExpandableGroceryList(
+                            title = R.string.welcome_text,
+                            groceryList = groceryItems,
+                            onCheckChange = {
+                                groceryItem ->
+                                Log.d("HomeScreen", "onCheckChange called for '${groceryItem.name}'.")
+                                onGroceryItemCheckBoxClicked(groceryItem)
+
+                            },
+                            initiallyExpanded = false,
+                            // To add padding between cards inside the expandable list
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
                     }
 
                 }
@@ -117,6 +131,8 @@
                 onNavigateToGrocery = {},
                 onNavigateToSuggestions = {},
                 onToggleLanguage = {},
+                onGroceryItemCheckBoxClicked = {},
+                onNavigateToGroceryItemDetails = {},
             )
         }
     }
