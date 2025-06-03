@@ -53,15 +53,18 @@ fun ExpandableGroceryList(
                 .fillMaxWidth()
                 .clickable { listExpanded = !listExpanded },
             shape = MaterialTheme.shapes.medium,
+            color = MaterialTheme.colorScheme.primaryContainer,
+            tonalElevation = 2.dp
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp)
             ) {
                 Text(
                     text = stringResource(title),
                     style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    color = MaterialTheme.colorScheme.primary
                 )
                 Icon(
                     imageVector = Icons.Filled.KeyboardArrowDown,
@@ -78,7 +81,7 @@ fun ExpandableGroceryList(
         ) {
             Column(
                 // To add padding between cards inside the expandable list
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier.padding(bottom = 8.dp, top = 8.dp)
             ) {
                 groceryList.forEach { item ->
                     GroceryItemCard(

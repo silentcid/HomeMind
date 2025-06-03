@@ -47,7 +47,7 @@ class GroceryViewModel @Inject constructor(
                 GroceryItem(1, "Bread", 1, false),
                 GroceryItem(2, "Ice Cream", 3, false),
                 GroceryItem(3, "Coca Cola", 5, false),
-                GroceryItem(3, "nuggets", 15, false)
+                GroceryItem(4, "nuggets", 15, false)
             )
             Log.d("GroceryViewModel", "Loaded initial dummy items into ViewModel.")
             _groceryItems.value = initialItems
