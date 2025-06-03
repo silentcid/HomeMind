@@ -83,7 +83,10 @@
                     }
 
                     item {
-                        WelcomeCarousel { /* Handle carousel click if needed */ }
+                        // To be implemented
+                        WelcomeCarousel(
+                            onItemClick = {}
+                        )
                     }
 
                     item {
@@ -96,7 +99,7 @@
                     item {
 
                         ExpandableGroceryList(
-                            title = R.string.welcome_text,
+                            title = R.string.grocery_list_header,
                             groceryList = groceryItems,
                             onCheckChange = {
                                 groceryItem ->

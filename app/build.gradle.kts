@@ -72,6 +72,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Material Icons
+    implementation(libs.material.icons.core)
+    implementation(libs.material.icons.extended)
+
     // Network
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
