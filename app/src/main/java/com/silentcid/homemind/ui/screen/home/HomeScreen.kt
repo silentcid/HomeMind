@@ -15,7 +15,6 @@
     import androidx.compose.ui.tooling.preview.Preview
     import androidx.compose.ui.unit.dp
     import com.silentcid.homemind.R
-    import com.silentcid.homemind.data.models.CarouselItem
     import com.silentcid.homemind.data.models.GroceryItem
     import com.silentcid.homemind.ui.components.ExpandableGroceryList
     import com.silentcid.homemind.ui.components.ToolBar

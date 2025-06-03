@@ -13,4 +13,10 @@
     <string name="camera_button">Take Photo</string>
     <string name="change_language_button">Change Language</string>
     <string name="grocery_list_header">Grocery List</string>
+    <string name="save_all_items">Save all items</string>
+    <string name="grocery_item_name_label">Item Name</string>
+    <string name="grocery_item_quantity_label">Qty</string>>
+    <string name="grocery_item_remove_item">Remove Item Entry</string>
+    <string name="add_grocery_item_entry">Add New Item Entry</string>
+    <string name="cancel_button">Cancel</string>
 </resources>

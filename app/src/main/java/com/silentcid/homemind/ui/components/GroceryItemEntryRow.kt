@@ -17,9 +17,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.silentcid.homemind.R
 
 @Composable
 fun GroceryItemEntryRow(
@@ -39,7 +41,7 @@ fun GroceryItemEntryRow(
         OutlinedTextField(
             value = entry.name,
             onValueChange = onNameChanged,
-            label = { Text("Item Name") },
+            label = { Text(stringResource(R.string.grocery_item_name_label)) },
             modifier = Modifier.weight(0.6f),
             singleLine = true,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -57,7 +59,7 @@ fun GroceryItemEntryRow(
                     onQuantityChanged(newValue)
                 }
             },
-            label = { Text("Qty") },
+            label = { Text(stringResource(R.string.grocery_item_quantity_label)) },
             modifier = Modifier.weight(0.25f),
             singleLine = true,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -72,7 +74,7 @@ fun GroceryItemEntryRow(
         onRemoveClicked?.let {
             Spacer(modifier = Modifier.width(8.dp))
             IconButton(onClick = it, modifier = Modifier.weight(0.15f)) {
-                Icon(Icons.Default.Delete, contentDescription = "Remove Item Entry")
+                Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.grocery_item_remove_item))
             }
         }
     }

@@ -41,7 +41,8 @@ fun AppNavigation(
         }
         entry<GroceryAddRouteKey> {
             AddGroceryRoute(
-                onBack = { backStack.removeLastOrNull() }
+                onBack = { backStack.removeLastOrNull() },
+                contextForResource = localizedContext,
             )
         }
 
