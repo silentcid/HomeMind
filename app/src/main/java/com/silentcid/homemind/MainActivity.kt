@@ -10,15 +10,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.silentcid.homemind.data.models.GroceryItem
+import com.silentcid.homemind.ui.screen.home.HomeRoute
 import com.silentcid.homemind.ui.screen.home.HomeScreen
 import com.silentcid.homemind.ui.theme.HomeMindTheme
 import com.silentcid.homemind.utils.LocaleManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,38 +38,41 @@ class MainActivity : ComponentActivity() {
             val localizedContext = remember (currentLanguage.value) {
                 LocaleManager.setLocale(this, currentLanguage.value)
             }
-
-            CompositionLocalProvider(LocalContext provides localizedContext) {
-
-                HomeMindTheme {
+            HomeMindTheme {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
                     ) {
-                        // Dummy grocery item list
-                        val dummyItems = listOf(
-                            GroceryItem(0, "StrawBerry", 2, false),
-                            GroceryItem(1, "Bread", 1, false),
-                            GroceryItem(2, "Ice Cream", 3, false),
-                            GroceryItem(3, "Coca Cola", 5, false),
-                            GroceryItem(3, "nuggets", 15, false)
-
-                        )
-
-                        HomeScreen(
-                            groceryItems = dummyItems,
+                        HomeRoute(
                             onNavigateToGrocery = {},
                             onNavigateToSuggestions = {},
                             onToggleLanguage = {
-                                currentLanguage.value = if(currentLanguage.value ==
-                                    LocaleManager.ENGLISH)
+                                currentLanguage.value = if (currentLanguage.value ==
+                                    LocaleManager.ENGLISH
+                                )
                                     LocaleManager.JAPANESE
                                 else
                                     LocaleManager.ENGLISH
                             },
+                            onNavigateToGroceryItemDetails = {},
+                            contextForResources = localizedContext,
+                        )
+
+                        HomeRoute(
+                            contextForResources = localizedContext,
+                            onNavigateToGrocery = {},
+                            onNavigateToSuggestions = {},
+                            onToggleLanguage = {
+                                currentLanguage.value = if (currentLanguage.value ==
+                                    LocaleManager.ENGLISH
+                                )
+                                    LocaleManager.JAPANESE
+                                else
+                                    LocaleManager.ENGLISH
+                            },
+                            onNavigateToGroceryItemDetails = {},
                         )
                     }
-                }
             }
         }
     }

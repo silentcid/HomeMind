@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.res.Configuration
 import java.util.Locale
 
+// LocaleManager object is responsible for managing the application's locale. Languages are switch
+// via a button and recomposition is triggered by the LocaleManager.
 object LocaleManager {
 
 

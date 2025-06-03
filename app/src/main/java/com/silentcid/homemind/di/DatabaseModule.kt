@@ -23,4 +23,9 @@ object DatabaseModule {
             "groceryItem.db"
         ).build()
     }
+
+    @Provides
+    @Singleton
+    fun provideGroceryDao(appDatabase: AppDatabase) = appDatabase.groceryDao()
 }
+
