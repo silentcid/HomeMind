@@ -5,6 +5,7 @@
     import androidx.compose.foundation.layout.*
     import androidx.compose.foundation.lazy.LazyColumn
     import androidx.compose.material3.*
+    import androidx.compose.material3.carousel.CarouselDefaults
     import androidx.compose.runtime.Composable
     import androidx.compose.ui.Alignment
     import androidx.compose.ui.Modifier
@@ -14,10 +15,12 @@
     import androidx.compose.ui.tooling.preview.Preview
     import androidx.compose.ui.unit.dp
     import com.silentcid.homemind.R
+    import com.silentcid.homemind.data.models.CarouselItem
     import com.silentcid.homemind.data.models.GroceryItem
     import com.silentcid.homemind.ui.components.ExpandableGroceryList
     import com.silentcid.homemind.ui.components.ToolBar
     import com.silentcid.homemind.ui.components.WelcomeCarousel
+    import com.silentcid.homemind.ui.components.WelcomeCarouselDefaults
     import com.silentcid.homemind.ui.theme.HomeMindTheme
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -85,7 +88,13 @@
                     item {
                         // To be implemented
                         WelcomeCarousel(
-                            onItemClick = {}
+                            onItemClick = { carouselItem ->
+                                when (carouselItem.itemId) {
+                                    WelcomeCarouselDefaults.ADD_TO_LIST_ID -> onNavigateToGrocery()
+                                    WelcomeCarouselDefaults.SUGGESTIONS_ID -> onNavigateToSuggestions()
+                                    WelcomeCarouselDefaults.TAKE_A_PICTURE_ID -> onNavigateToGroceryItemDetails()
+                                }
+                            }
                         )
                     }
 

@@ -9,7 +9,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.silentcid.homemind.viewmodels.GroceryViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
-import com.silentcid.homemind.data.models.GroceryItem
+import com.silentcid.homemind.data.models.CarouselItem
+
 
 @Composable
 fun HomeRoute(
@@ -25,7 +26,7 @@ fun HomeRoute(
     CompositionLocalProvider(LocalContext provides contextForResources) {
         HomeScreen(
             groceryItems = groceryItems,
-            onNavigateToGrocery = onNavigateToGrocery,
+            onNavigateToGrocery =  onNavigateToGrocery,
             onNavigateToSuggestions = onNavigateToSuggestions,
             onToggleLanguage = onToggleLanguage,
             onGroceryItemCheckBoxClicked = { item ->

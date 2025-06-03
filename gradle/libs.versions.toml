@@ -17,6 +17,9 @@ moshiConverter = "2.9.0"
 ksp = "2.0.21-1.0.27"
 material3IconsCore = "1.6.8"
 material3IconsExtended = "1.6.8"
+navigation3 ="1.0.0-alpha02"
+lifecycleViewModelNavigation3 = "1.0.0-alpha01"
+kotlinxSerializationCore = "1.7.0"
 
 [libraries]
 google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
@@ -46,7 +49,11 @@ moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 material-icons-core = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "material3IconsCore" }
 material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "material3IconsExtended" }
+navigation-three-core= {group = "androidx.navigation3", name= "navigation3-runtime", version.ref = "navigation3"}
+navigation-three-ui= {group = "androidx.navigation3", name= "navigation3-ui", version.ref = "navigation3"}
 
+androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewModelNavigation3" }
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -54,3 +61,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 ksp = { id = "com.google.devtools.ksp", version = "ksp" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
