@@ -7,11 +7,12 @@ plugins {
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace = "com.silentcid.homemind"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.silentcid.homemind"
@@ -81,6 +82,14 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
+
+    // Navigation 3 Alpha
+    implementation(libs.navigation.three.core)
+    implementation(libs.navigation.three.ui)
+
+    // Optional Navigation 3 related libraries
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.kotlinx.serialization.core) // For type-safe NavKeys
 
     // Test
     testImplementation(libs.junit)
