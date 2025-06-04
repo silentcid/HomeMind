@@ -14,5 +14,10 @@
     <string name="camera_button">写真を撮る</string>
     <string name="change_language_button">言語を変更</string>
     <string name="grocery_list_header">買い物リスト</string>
-
+    <string name="save_all_items">全項目を保存</string>
+    <string name="grocery_item_name_label">項目名</string>
+    <string name="grocery_item_quantity_label">数量</string>>
+    <string name="grocery_item_remove_item">項目を削除</string>
+    <string name="add_grocery_item_entry">新規項目を追加</string>
+    <string name="cancel_button">キャンセルする</string>
 </resources>

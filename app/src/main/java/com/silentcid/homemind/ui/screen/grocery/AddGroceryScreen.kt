@@ -1,4 +1,4 @@
-package com.silentcid.homemind.ui.screen.addgrocery
+package com.silentcid.homemind.ui.screen.grocery
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.silentcid.homemind.R
 import com.silentcid.homemind.data.models.PendingGroceryEntry
 import com.silentcid.homemind.ui.components.GroceryItemEntryRow
 import kotlin.collections.lastIndex
@@ -31,6 +33,7 @@ import kotlin.collections.lastIndex
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun AddGroceryScreen(
+    modifier: Modifier = Modifier,
     entries: List<PendingGroceryEntry>,
     onItemNameChanged: (index: Int, newName: String) -> Unit,
     onItemQuantityChanged: (index: Int, newQuantity: String) -> Unit,
@@ -38,15 +41,15 @@ fun AddGroceryScreen(
     onAddNewEntryClicked: () -> Unit,
     onSaveAllClicked: () -> Unit,
     onBackClicked: () -> Unit,
-    modifier: Modifier = Modifier
+
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Add Grocery Items") })
+            TopAppBar(title = { Text(stringResource(R.string.grocery_button)) })
         },
         floatingActionButton = {
             FloatingActionButton(onClick = onAddNewEntryClicked) {
-                Icon(Icons.Filled.AddCircle, contentDescription = "Add New Item Entry")
+                Icon(Icons.Filled.AddCircle, contentDescription = stringResource(R.string.grocery_button))
             }
         },
         modifier = modifier
@@ -55,6 +58,7 @@ fun AddGroceryScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues) // Apply padding from Scaffold
+                .padding(bottom = 80.dp)
         ) {
             LazyColumn(
                 modifier = Modifier
@@ -71,7 +75,7 @@ fun AddGroceryScreen(
                         entry = entry,
                         onNameChanged = { newName -> onItemNameChanged(index, newName) },
                         onQuantityChanged = { newQuantity -> onItemQuantityChanged(index, newQuantity) },
-                        onRemoveClicked = onRemoveEntryClicked?.let { { it(index) } },
+                        onRemoveClicked = onRemoveEntryClicked?.let { entry -> { entry(index) } },
                         isLastEntry = index == entries.lastIndex,
                         modifier = Modifier.animateItem() // Basic animation
                     )
@@ -88,14 +92,14 @@ fun AddGroceryScreen(
                     onClick = onBackClicked,
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel_button))
                 }
                 Button(
                     onClick = onSaveAllClicked,
                     modifier = Modifier.weight(1f),
                     enabled = entries.any { it.name.isNotBlank() } // Enable if at least one item has a name
                 ) {
-                    Text("Save All Items")
+                    Text(stringResource(R.string.save_all_items))
                 }
             }
             Spacer(modifier = Modifier.height(8.dp)) // Some spacing at the bottom
