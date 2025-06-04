@@ -30,8 +30,10 @@ fun GroceryItemEntryRow(
     onNameChanged: (String) -> Unit,
     onQuantityChanged: (String) -> Unit,
     onRemoveClicked: (() -> Unit)? = null, // Optional: if you want a remove button per row
-    isLastEntry: Boolean, // To handle
+    isLastEntry: Boolean, // a Flag to determine if it's the last entry used to control keyboard actions
+    // we'll switch to done instead of next if it detects the last entry in the list.
 ) {
+    //Get the instance of the focus manager to control keyboard focus.
     val focusManager = LocalFocusManager.current
 
     Row(

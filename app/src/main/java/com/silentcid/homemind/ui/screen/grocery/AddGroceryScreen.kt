@@ -1,4 +1,4 @@
-package com.silentcid.homemind.ui.screen.addgrocery
+package com.silentcid.homemind.ui.screen.grocery
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -75,7 +75,7 @@ fun AddGroceryScreen(
                         entry = entry,
                         onNameChanged = { newName -> onItemNameChanged(index, newName) },
                         onQuantityChanged = { newQuantity -> onItemQuantityChanged(index, newQuantity) },
-                        onRemoveClicked = onRemoveEntryClicked?.let { { it(index) } },
+                        onRemoveClicked = onRemoveEntryClicked?.let { entry -> { entry(index) } },
                         isLastEntry = index == entries.lastIndex,
                         modifier = Modifier.animateItem() // Basic animation
                     )
