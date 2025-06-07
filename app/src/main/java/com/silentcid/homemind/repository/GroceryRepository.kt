@@ -1,6 +1,5 @@
 package com.silentcid.homemind.repository
 
-import com.silentcid.homemind.data.dao.GroceryDao
 import com.silentcid.homemind.data.models.GroceryItem
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
