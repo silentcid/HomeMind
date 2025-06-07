@@ -63,4 +63,6 @@ with full support for Japanese and English.
 
 ## 📝 License
 
-MIT © 2025 Josh Gebbeken
+This project is licensed under the **Mozilla Public License 2.0**. For the full license text, see the [LICENSE](LICENSE) file.
+
+© 2025 Josh Gebbeken
