@@ -43,13 +43,12 @@ class GroceryViewModel @Inject constructor(
     private fun loadInitialItems() {
         if (_groceryItems.value.isEmpty()) {
             val initialItems = listOf(
-                GroceryItem(0, "StrawBerry", 2, false),
-                GroceryItem(1, "Bread", 1, false),
-                GroceryItem(2, "Ice Cream", 3, false),
-                GroceryItem(3, "Coca Cola", 5, false),
-                GroceryItem(4, "nuggets", 15, false)
+                GroceryItem(id = 0, "StrawBerry", 2, false),
+                GroceryItem(id = 1, "Bread", 1, false),
+                GroceryItem(id = 2, "Ice Cream", 3, false),
+                GroceryItem(id = 3, "Coca Cola", 5, false),
+                GroceryItem(id = 4, "nuggets", 15, false),
             )
-            Log.d("GroceryViewModel", "Loaded initial dummy items into ViewModel.")
             _groceryItems.value = initialItems
         }
 
