@@ -1,4 +1,4 @@
-# 🏡 HomeMind
+🏡 HomeMind
 
 **HomeMind** is a multilingual smart household assistant Android app, powered by 
 [Gemini AI](https://developers.google.com/) and built with Jetpack Compose. It helps families 
