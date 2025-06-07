@@ -1,6 +1,5 @@
-package com.bottlerocketstudios.mapsdemo.infrastructure.retrofitadapter
+package com.silentcid.homemind.core.retrofit
 
-import com.silentcid.homemind.core.retrofit.ResultCallAdapter
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ホームマインド</string>
+    <string name="api_error_title">サーバーエラー</string>
+    <string name="api_error_description">リクエストを完了できませんでした。（コード: %1$d）</string>
+    <string name="network_error_title">ネットワークエラー</string>
+    <string name="network_error_description">インターネット接続を確認して、もう一度お試しください。</string>
+    <string name="general_error_title">問題が発生しました</string>
+    <string name="general_error_description">後でもう一度お試しください。</string>
+    <string name="welcome_text">ようこそ！</string>
+    <string name="grocery_count">品数 %1$d</string>
+    <string name="grocery_button">食料品を追加する</string>
+    <string name="suggestion_button">メニューの提案</string>
+    <string name="camera_button">写真を撮る</string>
+    <string name="change_language_button">言語を変更</string>
+    <string name="grocery_list_header">買い物リスト</string>
+    <string name="save_all_items">全項目を保存</string>
+    <string name="grocery_item_name_label">項目名</string>
+    <string name="grocery_item_quantity_label">数量</string>>
+    <string name="grocery_item_remove_item">項目を削除</string>
+    <string name="add_grocery_item_entry">新規項目を追加</string>
+    <string name="cancel_button">キャンセルする</string>
+</resources>

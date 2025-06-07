@@ -58,9 +58,11 @@ with full support for Japanese and English.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose)
 - [Kotlin](https://kotlinlang.org/)
 - [Hilt + Room](https://developer.android.com/training/dependency-injection/hilt-android)
+-[Photo by Julius Drost on Unsplash](https://unsplash.com/@juliusdrost?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
----
 
 ## 📝 License
 
-MIT © 2025 Josh Gebbeken
+This project is licensed under the **Mozilla Public License 2.0**. For the full license text, see the [LICENSE](LICENSE) file.
+
+© 2025 Josh Gebbeken

@@ -5,20 +5,29 @@ coreKtx = "1.10.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
+lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.8.0"
-composeBom = "2024.09.00"
-daggerHilt = "2.56.1"
-daggerHiltCompose = "1.1.0"
-room = "2.6.1"
+composeBom = "2025.05.01"
+daggerHilt = "2.56.2"
+daggerHiltCompose = "1.2.0"
+room = "2.7.1"
 retrofit = "2.9.0"
 moshi = "1.15.0"
 moshiConverter = "2.9.0"
-
+ksp = "2.0.21-1.0.27"
+material3IconsCore = "1.6.8"
+material3IconsExtended = "1.6.8"
+navigation3 ="1.0.0-alpha02"
+lifecycleViewModelNavigation3 = "1.0.0-alpha01"
+kotlinxSerializationCore = "1.7.0"
+mockitoCore = "5.10.0"
+mockitoKotlin = "5.2.1"
+turbine = "1.1.0"
+kotlinxCoroutines = "1.8.0"
 
 [libraries]
-google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
-google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+google-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "daggerHiltCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -37,16 +46,31 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-room-testing = { group = "androidx.room", name ="room-testing", version.ref = "room"}
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "moshiConverter" }
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+material-icons-core = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "material3IconsCore" }
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "material3IconsExtended" }
+navigation-three-core= {group = "androidx.navigation3", name= "navigation3-runtime", version.ref = "navigation3"}
+navigation-three-ui= {group = "androidx.navigation3", name= "navigation3-ui", version.ref = "navigation3"}
 
+androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewModelNavigation3" }
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+
+
+mockito-mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-dagger-hilt = { id = "com.google.dagger.hilt.android",  version.ref = "daggerHilt"}
-
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+ksp = { id = "com.google.devtools.ksp", version = "ksp" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

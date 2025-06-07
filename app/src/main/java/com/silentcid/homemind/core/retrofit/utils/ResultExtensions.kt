@@ -18,7 +18,7 @@ fun <T> Result<T>.mapErrors(): Result<T> {
 
 fun <T> Result<T>.logFailure(): Result<T> = apply {
     exceptionOrNull()?.let { e ->
-        println("❌ Error: ${e.message}") // or Timber.d(...) if using logging
+        println("Error: ${e.message}") // or Timber.d(...) if using logging
     }
 }
 
