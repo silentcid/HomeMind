@@ -5,8 +5,6 @@ import com.silentcid.homemind.domain.models.UserFacingError
 import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.HttpException
 
-
-
 fun HttpException.toApiException() = ApiException(code(), message(), response()?.errorBody().toString())
 
 fun <T> Result<T>.mapErrors(): Result<T> {

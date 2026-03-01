@@ -14,8 +14,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 import javax.inject.Inject
@@ -23,9 +23,8 @@ import kotlin.collections.listOf
 
 @HiltViewModel
 class GroceryViewModel @Inject constructor(
-    private val  repository: GroceryRepository,
+    private val repository: GroceryRepository,
     private val dispatcherProvider: DispatcherProvider
-
 ): ViewModel() {
 
     private val _groceryItems = MutableStateFlow(emptyList<GroceryItem>())
@@ -34,38 +33,33 @@ class GroceryViewModel @Inject constructor(
     // To show errors to the user.
     val errorState = MutableStateFlow<UserFacingError>(UserFacingError.NoError)
 
-
     init {
         loadInitialItems()
+        loadGroceryItems()
     }
 
-    // Temporary solution to loading fake data. This will be replaced with more Room Implementation
+    // Temporary solution to loading fake data.
     private fun loadInitialItems() {
-        if (_groceryItems.value.isEmpty()) {
-            val initialItems = listOf(
-                GroceryItem(id = 0, "StrawBerry", 2, false),
-                GroceryItem(id = 1, "Bread", 1, false),
-                GroceryItem(id = 2, "Ice Cream", 3, false),
-                GroceryItem(id = 3, "Coca Cola", 5, false),
-                GroceryItem(id = 4, "nuggets", 15, false),
-            )
-            _groceryItems.value = initialItems
+        viewModelScope.launch(dispatcherProvider.IO) {
+            repository.getAllGroceryItems().collect { items ->
+                if (items.isEmpty()) {
+                    val initialItems = listOf(
+                        GroceryItem(id = 0, name = "StrawBerry", quantity = 2, isChecked = false),
+                        GroceryItem(id = 1, name = "Bread", quantity = 1, isChecked = false),
+                        GroceryItem(id = 2, name = "Ice Cream", quantity = 3, isChecked = false),
+                        GroceryItem(id = 3, name = "Coca Cola", quantity = 5, isChecked = false),
+                        GroceryItem(id = 4, name = "nuggets", quantity = 15, isChecked = false),
+                    )
+                    initialItems.forEach { repository.addGroceryItem(it) }
+                }
+            }
         }
-
     }
 
     fun loadGroceryItems() {
-        viewModelScope.launch(dispatcherProvider.IO) {
-            runCatching {
-                repository.getAllGroceryItems().collect { groceryItems ->
-                    _groceryItems.value = groceryItems
-
-                }
-            }.mapErrors()
-                .logFailure()
-                .handleFailure(errorState = errorState)
-
-        }
+        repository.getAllGroceryItems()
+            .onEach { items -> _groceryItems.value = items }
+            .launchIn(viewModelScope)
     }
 
     fun addItem(name: String, quantity: Int = 1) {
@@ -96,19 +90,9 @@ class GroceryViewModel @Inject constructor(
         }
     }
 
-    //temporary placeholder for updateItem function until room is fully implemented
     fun updateItemChecked(item: GroceryItem) {
         viewModelScope.launch(dispatcherProvider.IO) {
-            _groceryItems.update { currentGroceryItems ->
-                currentGroceryItems.map { groceryItem ->
-                    if (groceryItem.id == item.id) {
-                        groceryItem.copy(isChecked = !groceryItem.isChecked)
-                    } else {
-                        groceryItem
-                    }
-
-                }
-            }
+            repository.updateItemChecked(item.id, !item.isChecked)
         }
     }
 
@@ -124,5 +108,4 @@ class GroceryViewModel @Inject constructor(
     fun clearErrors() {
         errorState.value = UserFacingError.NoError
     }
-
 }

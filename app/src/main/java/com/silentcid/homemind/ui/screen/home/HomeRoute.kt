@@ -19,7 +19,7 @@ fun HomeRoute(
     onNavigateToGrocery: () -> Unit,
     onNavigateToSuggestions: () -> Unit,
     onToggleLanguage: () -> Unit,
-    onNavigateToGroceryItemDetails: () -> Unit,
+    onNavigateToGroceryItemDetails: (Int) -> Unit,
 ) {
     val groceryItems by viewModel.groceryItems.collectAsState()
 

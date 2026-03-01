@@ -4,23 +4,37 @@ import android.content.Context
 import android.content.res.Configuration
 import java.util.Locale
 
-// LocaleManager object is responsible for managing the application's locale. Languages are switch
-// via a button and recomposition is triggered by the LocaleManager.
 object LocaleManager {
-
-
-    const val DEFAULT_LOCALE_INDEX = 0 // Users default locale
+    const val DEFAULT_LOCALE_INDEX = 0
     const val ENGLISH = "en"
     const val JAPANESE = "ja"
 
+    /**
+     * Updates the locale for the given context (usually an Activity).
+     * This method uses updateConfiguration to ensure that even components 
+     * in separate windows (like Dialogs and BottomSheets) that might 
+     * reference the Activity's resources directly will see the localized strings.
+     */
+    @Suppress("DEPRECATION")
     fun setLocale(context: Context, language: String): Context {
-
-        val locale = Locale(language)
+        val locale = Locale.forLanguageTag(language)
         Locale.setDefault(locale)
 
-        val configuration = Configuration(context.resources.configuration)
+        val resources = context.resources
+        val configuration = Configuration(resources.configuration)
         configuration.setLocale(locale)
+        configuration.setLayoutDirection(locale)
 
-        return context.createConfigurationContext(configuration)
+        // Update the current context's resources directly. 
+        // This affects the Activity if 'context' is the Activity.
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+
+        // Also update application resources to ensure consistency across the app
+        val appResources = context.applicationContext.resources
+        appResources.updateConfiguration(configuration, appResources.displayMetrics)
+
+        // We return the original context (the Activity) to ensure Hilt 
+        // can find the ActivityComponent without any unwrapping issues.
+        return context
     }
 }

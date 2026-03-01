@@ -1,4 +1,5 @@
 import org.gradle.api.JavaVersion.VERSION_17
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -22,6 +23,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val localProperties = Properties()
+        val localPropertiesFile = project.rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.inputStream())
+        }
+        val geminiApiKey = localProperties.getProperty("GEMINI_API_KEY") ?: ""
+        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiApiKey\"")
     }
 
     buildTypes {
@@ -45,6 +54,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -90,6 +100,26 @@ dependencies {
     // Optional Navigation 3 related libraries
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
     implementation(libs.kotlinx.serialization.core) // For type-safe NavKeys
+
+    // MediaPipe LLM Inference & Vision
+    implementation(libs.mediapipe.tasks.genai)
+    implementation(libs.mediapipe.tasks.vision)
+
+    // Google AI SDK (Gemini)
+    implementation(libs.google.generativeai)
+
+    // ML Kit for image labeling (fallback when GPU vision unavailable)
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
+    implementation("com.google.mlkit:image-labeling:17.0.8")
+
+    // Image Loading
+    implementation(libs.coil.compose)
+
+    // DataStore
+    implementation(libs.datastore.preferences)
+
+    // WorkManager
+    implementation(libs.work.runtime.ktx)
 
     // Test
     testImplementation(libs.junit)

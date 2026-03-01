@@ -13,10 +13,106 @@
     <string name="camera_button">Take Photo</string>
     <string name="change_language_button">Change Language</string>
     <string name="grocery_list_header">Grocery List</string>
+    <string name="householdTips">Household</string>
+    <string name="grocerySuggestions">Grocery Ideas</string>
+    <string name="modelNotLoaded">AI Model not loaded</string>
+    <string name="loading_suggestions">Loading suggestions...</string>
+    <string name="model_error">Error loading AI model</string>
+    <string name="groceryDetailsTitle">Grocery Details</string>
+    <string name="groceryList">Grocery List</string>
+    <string name="font_size">Font Size</string>
     <string name="save_all_items">Save all items</string>
     <string name="grocery_item_name_label">Item Name</string>
-    <string name="grocery_item_quantity_label">Qty</string>>
+    <string name="grocery_item_quantity_label">Qty</string>
     <string name="grocery_item_remove_item">Remove Item Entry</string>
     <string name="add_grocery_item_entry">Add New Item Entry</string>
     <string name="cancel_button">Cancel</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="home">Home</string>
+    <string name="groceries">Groceries</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="settings">Settings</string>
+    
+    <!-- Dashboard -->
+    <string name="dashboardSubtitle">Your household assistant</string>
+    <string name="pending">Pending</string>
+    <string name="done">Done</string>
+    <string name="items">items</string>
+    <string name="items_remaining">%1$d items remaining</string>
+    <string name="quickActions">Quick Actions</string>
+    <string name="addGrocery">Add Grocery</string>
+    <string name="getMealIdeas">Meal Ideas</string>
+    <string name="cleaningTips">Cleaning Tips</string>
+    <string name="shoppingRec">Shopping Rec</string>
+    <string name="recentGroceries">Recent Groceries</string>
+    <string name="viewAll">View All</string>
+    <string name="aiInsights">AI Insights</string>
+    <string name="mealIdeasTitle">Meal Ideas</string>
+    <string name="aiInsightDesc">Based on your grocery list, try making a fresh spinach and chicken salad with apple slices!</string>
+    
+    <!-- Grocery -->
+    <string name="emptyGrocery">No groceries yet</string>
+    <string name="emptyGroceryDesc">Add items to your grocery list to get started</string>
+    <string name="addNewItem">Add New Item</string>
+    <string name="itemName">Item Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="category">Category</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="deleteAll">Delete All</string>
+    <string name="checked">Checked</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- Suggestions -->
+    <string name="mealIdeasTab">Meals</string>
+    <string name="shoppingRecTab">Shop</string>
+    <string name="generating">Generating...</string>
+    <string name="generateTip">Generate New Tip</string>
+    <string name="generateMeal">Generate Meal Idea</string>
+    <string name="generateRec">Get Recommendations</string>
+    <string name="tips">Household Tips</string>
+    <string name="meals">Meal Ideas</string>
+    <string name="shopping">Shopping Recommendations</string>
+    <string name="poweredBy">Powered by Gemma AI</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="directions">Directions</string>
+
+    <!-- Settings -->
+    <string name="language">Language</string>
+    <string name="theme">Theme</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="system">System</string>
+    <string name="about">About</string>
+    <string name="version">Version 1.0</string>
+    <string name="appName">HomeMind</string>
+    <string name="appDescription">A multilingual smart household assistant with AI-powered suggestions using on-device Gemma 3n models.</string>
+    
+    <!-- Categories -->
+    <string name="dairy">Dairy</string>
+    <string name="bakery">Bakery</string>
+    <string name="fruits">Fruits</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="meat">Meat</string>
+    <string name="beverages">Beverages</string>
+    <string name="snacks">Snacks</string>
+    <string name="other">Other</string>
+    
+    <!-- Additional -->
+    <string name="suggestions_title">AI Suggestions</string>
+    <string name="household_suggestions">Household Tips</string>
+    <string name="grocery_suggestions">Grocery Ideas</string>
+    <string name="model_not_loaded">AI Model not loaded</string>
+    <string name="grocery_details_title">Grocery Details</string>
+    
+    <!-- Camera -->
+    <string name="takePhoto">Take Photo</string>
+    <string name="identifyProduct">Identify Product</string>
+    <string name="analyzingImage">Analyzing image...</string>
+    <string name="productIdentified">Product identified: %1$s</string>
+    <string name="add_to_grocery_confirm">Would you like to add this to your grocery list?</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="addToList">Add to Grocery List</string>
+    <string name="cameraPermissionRequired">Camera permission is required to identify products</string>
 </resources>

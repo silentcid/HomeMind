@@ -20,9 +20,21 @@ interface GroceryDao {
     @Delete
     suspend fun deleteGroceryItem(item: GroceryItem)
 
+    @Query("DELETE FROM grocery_items WHERE id = :id")
+    suspend fun deleteGroceryItemById(id: Int)
+
     @Update
     suspend fun updateItem(item: GroceryItem)
 
+    @Query("UPDATE grocery_items SET isChecked = :isChecked WHERE id = :id")
+    suspend fun updateItemChecked(id: Int, isChecked: Boolean)
+
+    @Query("UPDATE grocery_items SET isChecked = NOT isChecked WHERE id = :id")
+    suspend fun toggleItemChecked(id: Int)
+
     @Query("DELETE FROM grocery_items")
     suspend fun clearAll()
+
+    @Query("DELETE FROM grocery_items WHERE isChecked = 1")
+    suspend fun clearCompleted()
 }

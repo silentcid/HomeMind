@@ -37,6 +37,7 @@ fun ExpandableGroceryList(
     @StringRes title: Int,
     groceryList: List<GroceryItem>,
     onCheckChange: (groceryItem: GroceryItem) -> Unit,
+    onItemClick: (GroceryItem) -> Unit,
     modifier: Modifier = Modifier,
     initiallyExpanded: Boolean = false
 ) {
@@ -80,7 +81,6 @@ fun ExpandableGroceryList(
             exit = fadeOut() + shrinkVertically(shrinkTowards = Alignment.Top)
         ) {
             Column(
-                // To add padding between cards inside the expandable list
                 modifier = Modifier.padding(bottom = 8.dp, top = 8.dp)
             ) {
                 groceryList.forEach { item ->
@@ -89,7 +89,10 @@ fun ExpandableGroceryList(
                         onCheckedChange = { changedGroceryItem ->
                             onCheckChange(changedGroceryItem)
                         },
-                        modifier = modifier,
+                        onItemClick = { clickedItem ->
+                            onItemClick(clickedItem)
+                        },
+                        modifier = Modifier.padding(vertical = 4.dp),
                     )
                 }
             }
@@ -97,13 +100,9 @@ fun ExpandableGroceryList(
     }
 }
 
-// --- Preview ---
-// Ensure your GroceryItem model can be instantiated for the preview.
-
 @Preview(showBackground = true, name = "Expandable List with GroceryItemCards")
 @Composable
 fun ExpandableGroceryListWithCardsPreview() {
-    // Assuming GroceryItem can be created like this for preview:
     val sampleItems = listOf(
         GroceryItem(id = 1, name = "Apples", quantity = 2, isChecked = false),
         GroceryItem(id = 2, name = "Organic Milk", quantity = 1, isChecked = false),
@@ -117,13 +116,12 @@ fun ExpandableGroceryListWithCardsPreview() {
             title = R.string.welcome_text,
             groceryList = itemsForPreview,
             onCheckChange = { changedItem ->
-                //Flow the check change up the chain
                 itemsForPreview = itemsForPreview.map { groceryItem ->
                     if (groceryItem.id == changedItem.id) groceryItem.copy(isChecked = !groceryItem.isChecked)
                     else groceryItem
                 }
-                println("Check changed for: ${changedItem.name}")
             },
+            onItemClick = {},
             initiallyExpanded = true,
             modifier = Modifier.padding(8.dp)
         )

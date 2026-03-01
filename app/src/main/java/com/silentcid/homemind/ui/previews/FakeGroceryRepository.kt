@@ -21,7 +21,15 @@ class FakeGroceryRepository : GroceryRepository {
         // No-Op
     }
 
+    override suspend fun addGroceryItem(name: String, quantity: Int, category: String) {
+        // No-Op
+    }
+
     override suspend fun deleteGroceryItem(item: GroceryItem) {
+        // No-Op
+    }
+
+    override suspend fun deleteGroceryItemById(id: Int) {
         // No-Op
     }
 
@@ -29,7 +37,19 @@ class FakeGroceryRepository : GroceryRepository {
         // No-Op
     }
 
+    override suspend fun updateItemChecked(id: Int, isChecked: Boolean) {
+        // No-Op
+    }
+
+    override suspend fun toggleItemChecked(id: Int) {
+        // No-Op
+    }
+
     override suspend fun clearAllGroceryItems() {
+        // No-Op
+    }
+
+    override suspend fun clearCompleted() {
         // No-Op
     }
 }

@@ -9,6 +9,7 @@ data class GroceryItem (
     val id: Int = 0,
     val name: String,
     val quantity: Int = 1,
+    val category: String = "other",
     val isChecked: Boolean = false,
-
+    val addedTimestamp: Long = System.currentTimeMillis(),
 )
